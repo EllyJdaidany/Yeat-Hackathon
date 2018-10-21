@@ -2,40 +2,70 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity } from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
+import { LinearGradient } from 'expo';
 
-export default class ResHome extends React.Component {
+export default class test extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#182e42'}}>
+        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#002a4d'}}>
           <Left style={{marginLeft: -130,}}>
-            <Icon name="menu" size={24} style={{color: '#f2f2f2'}} onPress={() => this.props.navigation.openDrawer()}/>
+            <Icon name="menu" size={24} style={{color: '#f2f2f2'}} onPress={() =>
+              this.props.navigation.openDrawer()}/>
           </Left>
         </Header>
 
         <View style={styles.intro}>
-          <View style={styles.centering}>
-            <Text style={styles.head}>Welcome back, Panera</Text>
-          </View>
+        <LinearGradient
+          colors={['#002a4d', '#14568c', '#80c6ff']}
+          style={{ height: 150, padding: 15, alignItems: 'center', }}>
+          <Text
+            style={styles.head}>
+            Welcome back, Panera
+            </Text>
+            </LinearGradient>
         </View>
 
-        <View style={styles.centering}>
-          <TouchableOpacity
-            style={styles.donateBtn}
-            onPress={() => this.props.navigation.navigate('Donate Food')}
-          >
-          <Icon size={50} name="car" style={styles.carIcon}/>
+      <View style={styles.topLeftBox}>
+        <TouchableOpacity
+          style={styles.boxElement}
+          onPress={() => this.props.navigation.navigate('See Requested Food')}
+        >
+            <Text style={styles.reqText}>See{"\n"}Requested{"\n"}food</Text>
+            <Icon name={"clipboard"} type="FontAwesome"size={24} style={styles.clipboardIcon}/>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.topRightBox}>
+        <TouchableOpacity
+          style={styles.boxElement}
+          onPress={() => this.props.navigation.navigate('Donate Food')}
+        >
           <Text style={styles.donateText}>Donate food</Text>
-          </TouchableOpacity>
+          <Icon name={"truck"} type="FontAwesome"size={24} style={styles.carIcon}/>
+        </TouchableOpacity>
+      </View>
 
-          <TouchableOpacity
-            style={styles.reqBtn}
-            onPress={() => this.props.navigation.navigate('See Requested Food')}
-          >
-          <Icon name={"clipboard"} type="FontAwesome" size={24} style={styles.clipboardIcon}/>
-          <Text style={styles.reqText}>See requested food</Text>
-          </TouchableOpacity>
-        </View>
+      <View style={styles.botLeftBox}>
+      <TouchableOpacity
+        style={styles.boxElement}
+        onPress={() => this.props.navigation.navigate('Restaurant Stats')}
+      >
+        <Text style={styles.graphText}>My stats</Text>
+        <Icon name={"line-chart"} type="FontAwesome"size={24} style={styles.graphIcon}/>
+      </TouchableOpacity>
+      </View>
+
+      <View style={styles.botRightBox}>
+        <TouchableOpacity
+          style={styles.boxElement}
+          onPress={() => this.props.navigation.navigate('Request Food')}
+        >
+          <Text style={styles.profileText}>My Profile</Text>
+          <Icon name={"user"} type="FontAwesome"size={24} style={styles.userIcon}/>
+        </TouchableOpacity>
+      </View>
+
       </View>
     );
   }
@@ -47,50 +77,126 @@ const styles = StyleSheet.create({
     backgroundColor: '#f2f2f2',
   },
 
-  donateBtn: {
-    marginTop: 15,
-    width: '90%',
-    height: 180,
-    backgroundColor: '#698eb8',
+  boxElement: {
+    backgroundColor: 'rgba(128,198,255,0.1)',
+    height: '100%',
+    width: '100%',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  topLeftBox: {
+    position: 'absolute',
+    borderColor: '#002a4d',
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    height: '30%',
+    width: '40%',
+    marginTop: 250,
+    marginLeft: '6%',
+  },
+
+  topRightBox: {
+    position: 'absolute',
+    borderColor: '#002a4d',
+    borderBottomWidth: 1,
+    height: '30%',
+    width: '40%',
+    marginTop: 250,
+    marginLeft: '49%',
+  },
+
+
+  botLeftBox: {
+    position: 'absolute',
+    borderColor: '#002a4d',
+    borderRightWidth: 1,
+    height: '30%',
+    width: '40%',
+    marginTop: 456,
+    marginLeft: '6%',
+
+  },
+
+  botRightBox: {
+    position: 'absolute',
+    borderColor: '#002a4d',
+    borderLeftWidth: 1,
+    height: '30%',
+    width: '40%',
+    marginTop: 456,
+    marginLeft: '49%',
   },
 
   carIcon: {
-    color: '#f2f2f2',
-    position: 'absolute',
-    marginTop: 77,
-    marginLeft: 85,
+    color: '#002a4d',
+    marginTop: 55,
   },
 
   clipboardIcon: {
-    color: '#f2f2f2',
-    marginTop: 75,
-    position: 'absolute',
-    marginLeft: 35,
+    color: '#002a4d',
+    marginTop: 25,
+  },
+
+  userIcon: {
+    color: '#002a4d',
+    marginTop: 60,
+  },
+
+  graphIcon: {
+    color: '#002a4d',
+    marginTop: 60,
   },
 
   donateText: {
-    fontSize: 24,
-    color: '#f2f2f2',
-    marginTop: 75,
-    marginLeft: 115,
+    fontSize: 18,
+    color: '#002a4d',
+    textAlign: 'center',
+    marginTop: '-10%',
+    position: 'relative',
+  },
+
+  graphText: {
+    fontSize: 18,
+    color: '#002a4d',
+    textAlign: 'center',
+    marginTop: '-8%',
+    position: 'relative',
+  },
+
+  profileText: {
+    fontSize: 18,
+    color: '#002a4d',
+    textAlign: 'center',
+    marginTop: '-6%',
+    position: 'relative',
   },
 
   reqText: {
-    fontSize: 24,
-    color: '#f2f2f2',
-    marginTop: 75,
-    marginLeft: 75,
+    fontSize: 18,
+    color: '#002a4d',
+    textAlign: 'center',
+    marginTop: '-20%',
+    position: 'relative',
   },
 
   reqBtn: {
     marginTop: 15,
     width: '90%',
     height: 180,
-    backgroundColor: '#698eb8',
+    backgroundColor: '#c18eda',
   },
+
+  donateBtn: {
+    marginTop: 15,
+    width: '90%',
+    height: 180,
+    backgroundColor: '#c18eda',
+  },
+
   intro: {
     height: '25%',
-    backgroundColor: '#182e42',
   },
   centering: {
       flexDirection: 'column',

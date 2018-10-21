@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, Dimensions, Image } from 'react-native';
 import {createDrawerNavigator, DrawerItems} from 'react-navigation';
+import {Icon} from 'native-base';
 
 import ResHome from './components/screens/ResHome.js';
 import RegScreen from './components/screens/RegScreen.js';
@@ -10,6 +11,8 @@ import DonateFood from './components/screens/donateFood.js';
 import Categories from './components/screens/category.js';
 import ReqFood from './components/screens/ReqFood.js';
 import Available from './components/screens/AvailableFood.js';
+import test from './components/screens/test.js';
+import resStats from './components/screens/resStats.js';
 
 export default class App extends React.Component {
   render() {
@@ -20,9 +23,9 @@ export default class App extends React.Component {
 }
 
 const DrawerComponent = (props) => (
-  <SafeAreaView style={{ flex: 1, }}>
+  <SafeAreaView style={{marginTop: 50, }}>
     <View style={{ height: 250, backgroundColor: '#fffff', flex: 1, }}>
-      <Image source={require('./components/images/logosmall.png')} />
+      <Icon type="FontAwesome" name="truck" size={50} style={{color: '#f2f2f2'}} />
     </View>
     <ScrollView>
       <DrawerItems {...props}/>
@@ -31,14 +34,15 @@ const DrawerComponent = (props) => (
 )
 
 const AppDrawerNav = createDrawerNavigator({
+    'Restaurant Home': ResHome,
   'Bank Home' : BankHome,
-  'Restaurant Home': ResHome,
   'Register': RegScreen,
   'See Requested Food' : SeeReqFood,
   'Donate Food' : DonateFood,
   'Donate via category' : Categories,
   'Request Food' : ReqFood,
-  'Available Food' : Available
+  'Available Food' : Available,
+  'Restaurant Stats' : resStats,
 },{
   contentComponent: DrawerItems,
 })

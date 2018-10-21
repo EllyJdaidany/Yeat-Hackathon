@@ -4,11 +4,11 @@ import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
 import { LinearGradient } from 'expo';
 
-export default class bankHome extends React.Component {
+export default class resStats extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#793698'}}>
+        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#002a4d'}}>
           <Left style={{marginLeft: -130,}}>
             <Icon name="menu" size={24} style={{color: '#f2f2f2'}} onPress={() =>
               this.props.navigation.openDrawer()}/>
@@ -16,55 +16,15 @@ export default class bankHome extends React.Component {
         </Header>
 
         <View style={styles.intro}>
-        <LinearGradient
-          colors={['#793698', '#ac68cc', '#d6b4e7']}
-          style={{ height: 150, padding: 15, alignItems: 'center', }}>
-          <Text
-            style={styles.head}>
-            Welcome back, Feeding America
-            </Text>
-            </LinearGradient>
+          <LinearGradient
+            colors={['#002a4d', '#14568c', '#80c6ff']}
+            style={{ height: 150, padding: 15, alignItems: 'center', }}>
+              <Image
+                source={require('../images/barchart.png')}
+                style={{height: 150, width: '100%',resizeMode: 'contain',}}
+              />
+          </LinearGradient>
         </View>
-
-      <View style={styles.topLeftBox}>
-        <TouchableOpacity
-          style={styles.boxElement}
-          onPress={() => this.props.navigation.navigate('Available Food')}
-        >
-            <Text style={styles.reqText}>See{"\n"}Available{"\n"}food</Text>
-            <Icon name={"clipboard"} type="FontAwesome"size={24} style={styles.clipboardIcon}/>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.topRightBox}>
-        <TouchableOpacity
-          style={styles.boxElement}
-          onPress={() => this.props.navigation.navigate('Request Food')}
-        >
-          <Text style={styles.donateText}>Request food</Text>
-          <Icon name={"truck"} type="FontAwesome"size={24} style={styles.carIcon}/>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.botLeftBox}>
-      <TouchableOpacity
-        style={styles.boxElement}
-        onPress={() => this.props.navigation.navigate('Request Food')}
-      >
-        <Text style={styles.graphText}>My stats</Text>
-        <Icon name={"line-chart"} type="FontAwesome"size={24} style={styles.graphIcon}/>
-      </TouchableOpacity>
-      </View>
-
-      <View style={styles.botRightBox}>
-        <TouchableOpacity
-          style={styles.boxElement}
-          onPress={() => this.props.navigation.navigate('Request Food')}
-        >
-          <Text style={styles.profileText}>My Profile</Text>
-          <Icon name={"user"} type="FontAwesome"size={24} style={styles.userIcon}/>
-        </TouchableOpacity>
-      </View>
 
       </View>
     );
@@ -78,7 +38,7 @@ const styles = StyleSheet.create({
   },
 
   boxElement: {
-    backgroundColor: 'rgba(214,180,231,0.1)',
+    backgroundColor: 'rgba(128,198,255,0.1)',
     height: '100%',
     width: '100%',
     flexDirection: 'column',
@@ -88,7 +48,7 @@ const styles = StyleSheet.create({
 
   topLeftBox: {
     position: 'absolute',
-    borderColor: '#d6b4e7',
+    borderColor: '#002a4d',
     borderBottomWidth: 1,
     borderRightWidth: 1,
     height: '30%',
@@ -99,7 +59,7 @@ const styles = StyleSheet.create({
 
   topRightBox: {
     position: 'absolute',
-    borderColor: '#d6b4e7',
+    borderColor: '#002a4d',
     borderBottomWidth: 1,
     height: '30%',
     width: '40%',
@@ -110,7 +70,7 @@ const styles = StyleSheet.create({
 
   botLeftBox: {
     position: 'absolute',
-    borderColor: '#d6b4e7',
+    borderColor: '#002a4d',
     borderRightWidth: 1,
     height: '30%',
     width: '40%',
@@ -121,7 +81,7 @@ const styles = StyleSheet.create({
 
   botRightBox: {
     position: 'absolute',
-    borderColor: '#d6b4e7',
+    borderColor: '#002a4d',
     borderLeftWidth: 1,
     height: '30%',
     width: '40%',
@@ -130,28 +90,28 @@ const styles = StyleSheet.create({
   },
 
   carIcon: {
-    color: '#793698',
+    color: '#002a4d',
     marginTop: 55,
   },
 
   clipboardIcon: {
-    color: '#793698',
+    color: '#002a4d',
     marginTop: 25,
   },
 
   userIcon: {
-    color: '#793698',
+    color: '#002a4d',
     marginTop: 60,
   },
 
   graphIcon: {
-    color: '#793698',
+    color: '#002a4d',
     marginTop: 60,
   },
 
   donateText: {
     fontSize: 18,
-    color: '#793698',
+    color: '#002a4d',
     textAlign: 'center',
     marginTop: '-10%',
     position: 'relative',
@@ -159,7 +119,7 @@ const styles = StyleSheet.create({
 
   graphText: {
     fontSize: 18,
-    color: '#793698',
+    color: '#002a4d',
     textAlign: 'center',
     marginTop: '-8%',
     position: 'relative',
@@ -167,7 +127,7 @@ const styles = StyleSheet.create({
 
   profileText: {
     fontSize: 18,
-    color: '#793698',
+    color: '#002a4d',
     textAlign: 'center',
     marginTop: '-6%',
     position: 'relative',
@@ -175,7 +135,7 @@ const styles = StyleSheet.create({
 
   reqText: {
     fontSize: 18,
-    color: '#793698',
+    color: '#002a4d',
     textAlign: 'center',
     marginTop: '-20%',
     position: 'relative',

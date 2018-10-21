@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity } from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
 import { LinearGradient } from 'expo';
 
-export default class bankHome extends React.Component {
+export default class test extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -47,23 +47,10 @@ export default class bankHome extends React.Component {
       </View>
 
       <View style={styles.botLeftBox}>
-      <TouchableOpacity
-        style={styles.boxElement}
-        onPress={() => this.props.navigation.navigate('Request Food')}
-      >
-        <Text style={styles.graphText}>My stats</Text>
-        <Icon name={"line-chart"} type="FontAwesome"size={24} style={styles.graphIcon}/>
-      </TouchableOpacity>
-      </View>
 
+      </View>
       <View style={styles.botRightBox}>
-        <TouchableOpacity
-          style={styles.boxElement}
-          onPress={() => this.props.navigation.navigate('Request Food')}
-        >
-          <Text style={styles.profileText}>My Profile</Text>
-          <Icon name={"user"} type="FontAwesome"size={24} style={styles.userIcon}/>
-        </TouchableOpacity>
+
       </View>
 
       </View>
@@ -107,7 +94,6 @@ const styles = StyleSheet.create({
     marginLeft: '49%',
   },
 
-
   botLeftBox: {
     position: 'absolute',
     borderColor: '#d6b4e7',
@@ -131,7 +117,7 @@ const styles = StyleSheet.create({
 
   carIcon: {
     color: '#793698',
-    marginTop: 55,
+    marginTop: 60,
   },
 
   clipboardIcon: {
@@ -139,37 +125,11 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
 
-  userIcon: {
-    color: '#793698',
-    marginTop: 60,
-  },
-
-  graphIcon: {
-    color: '#793698',
-    marginTop: 60,
-  },
-
   donateText: {
     fontSize: 18,
     color: '#793698',
     textAlign: 'center',
     marginTop: '-10%',
-    position: 'relative',
-  },
-
-  graphText: {
-    fontSize: 18,
-    color: '#793698',
-    textAlign: 'center',
-    marginTop: '-8%',
-    position: 'relative',
-  },
-
-  profileText: {
-    fontSize: 18,
-    color: '#793698',
-    textAlign: 'center',
-    marginTop: '-6%',
     position: 'relative',
   },
 

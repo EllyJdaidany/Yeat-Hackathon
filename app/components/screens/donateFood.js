@@ -7,7 +7,7 @@ export default class DonateFood extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#182e42'}}>
+        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#002a4d'}}>
           <Left style={{marginLeft: -130,}}>
           <Icon name="arrow-left" type="FontAwesome" size={24} style={{color: '#f2f2f2'}}
           onPress={() => this.props.navigation.navigate('Restaurant Home')}/>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   intro: {
     height: '25%',
-    backgroundColor: '#182e42',
+    backgroundColor: '#002a4d',
   },
   centering: {
       flexDirection: 'column',
