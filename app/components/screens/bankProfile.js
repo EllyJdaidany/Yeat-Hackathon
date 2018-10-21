@@ -25,7 +25,7 @@ this.setState({ fontLoaded: true });
         <Header style={{paddingTop: 20, height: 80, backgroundColor: '#793698'}}>
           <Left style={{marginLeft: -130,}}>
           <Icon name="arrow-left" type="FontAwesome" size={24} style={{color: '#f2f2f2'}}
-          onPress={() => this.props.navigation.navigate('Restaurant Home')}/>
+          onPress={() => this.props.navigation.navigate('Bank Home')}/>
           </Left>
         </Header>
 
@@ -60,7 +60,7 @@ this.setState({ fontLoaded: true });
             }
             <TouchableOpacity
               style={styles.statsBtn}
-              onPress={() => this.props.navigation.navigate('Restaurant Stats')}
+              onPress={() => this.props.navigation.navigate('Bank Stats')}
             >
             {
               this.state.fontLoaded ? (
