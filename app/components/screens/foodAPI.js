@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity, Image, Scr
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
 import { LinearGradient, Font } from 'expo';
+const Clarifai = require('clarifai');
 
 export default class foodAPI extends React.Component {
   constructor(props) {
@@ -10,8 +11,35 @@ export default class foodAPI extends React.Component {
       this.state = {
       fontLoaded: false,
       qty: "",
+      food1: "",
+      food2: "",
+      food3: "",
+      food4: ""
     };
   }
+
+  imageSearch(){
+    console.log("Called Function");
+
+    const app = new Clarifai.App({
+      apiKey: 'f7b984f6836947fb8edc7fc676bc9d65'
+    });
+
+    // Identify the image
+    process.nextTick = setImmediate
+    app.models.initModel({id: Clarifai.FOOD_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
+    .then(foodModel => {
+      return foodModel.predict("https://thestayathomechef.com/wp-content/uploads/2017/12/Pasta-Pomodoro-4-small.jpg");
+    })
+    .then(response => {
+      this.state.food1 = response['outputs'][0]['data']['concepts'][0]['name'];
+      this.state.food2 = response['outputs'][0]['data']['concepts'][1]['name'];
+      this.state.food3 = response['outputs'][0]['data']['concepts'][2]['name'];
+      this.state.food4 = response['outputs'][0]['data']['concepts'][3]['name'];
+
+      console.log(this.state.food1);
+    })
+}
 
 async componentDidMount() {
   await Font.loadAsync({
@@ -22,6 +50,7 @@ async componentDidMount() {
 }
 
   render() {
+    console.log("***", this.state.food1);
     return (
       <View style={styles.container}>
         <Header style={{paddingTop: 20, height: 80, backgroundColor: '#002a4d'}}>
@@ -52,7 +81,7 @@ async componentDidMount() {
           {
             this.state.fontLoaded ? (
               <Text style={{ fontFamily: 'Roboto', fontSize: 16, textAlign: 'center', color:'#f2f2f2',}}>
-                Pasta
+                {this.state.food1}
               </Text>
             ) : null
           }
