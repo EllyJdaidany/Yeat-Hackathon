@@ -2,8 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, Dimensions, Image } from 'react-native';
 import {createDrawerNavigator, DrawerItems} from 'react-navigation';
 
-import HomeScreen from './components/screens/HomeScreen.js';
-import RegScreen from './components/screens/RegScreen.js'
+import ResHome from './components/screens/ResHome.js';
+import RegScreen from './components/screens/RegScreen.js';
+import BankHome from './components/screens/bankHome.js';
 
 export default class App extends React.Component {
   render() {
@@ -15,7 +16,7 @@ export default class App extends React.Component {
 
 const DrawerComponent = (props) => (
   <SafeAreaView style={{ flex: 1, }}>
-    <View style={{ height: 250, backgroundColor: '#fffff' }}>
+    <View style={{ height: 250, backgroundColor: '#fffff', flex: 1, }}>
       <Image source={require('./components/images/logosmall.png')} />
     </View>
     <ScrollView>
@@ -25,9 +26,9 @@ const DrawerComponent = (props) => (
 )
 
 const AppDrawerNav = createDrawerNavigator({
-    Register:RegScreen,
-  Home: HomeScreen,
-
+  'Restaurant Home': ResHome,
+  'Bank Home' : BankHome,
+  Register:RegScreen,
 },{
   contentComponent: DrawerItems,
 })
