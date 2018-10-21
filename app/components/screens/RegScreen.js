@@ -9,7 +9,7 @@ export default class RegScreen extends React.Component {
   super(props);
   this.state = { name: "",
                  address: "",
-                 type: "",
+                 type: "restaurants",
                };
 }
   render() {
@@ -73,12 +73,19 @@ export default class RegScreen extends React.Component {
       body: JSON.stringify({
         name: this.state.name,
         address: this.state.address,
-        type: this.state.type == "Restaurant" ? true : false
+        type: this.state.type == "restaurants" ? true : false
       }),
     }).then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson);
-      this.props.navigation.navigate('Home');
+      console.log(this.state.type);
+
+      if(this.state.type == "restaurants"){
+        this.props.navigation.navigate('Restaurant Home');
+      }
+      else {
+        this.props.navigation.navigate('Bank Home');
+      }
     })
     .catch((error) => {
       console.error(error);
