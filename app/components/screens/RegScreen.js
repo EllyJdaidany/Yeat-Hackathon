@@ -2,11 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity } from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
+//import DeviceInfo from 'react-native-device-info';
 
 export default class RegScreen extends React.Component {
   constructor(props) {
   super(props);
-  this.state = { text: "",
+  this.state = { name: "",
+                 address: "",
                  type: "",
                };
 }
@@ -26,8 +28,8 @@ export default class RegScreen extends React.Component {
         underlineColorAndroid='transparent'
           autoCorrect={false}
           style={styles.textIn}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}
+          onChangeText={(name) => this.setState({name})}
+          value={this.state.name}
         />
 
         <Text style={styles.textInLabel}>Address</Text>
@@ -35,8 +37,8 @@ export default class RegScreen extends React.Component {
         underlineColorAndroid='transparent'
           autoCorrect={false}
           style={styles.textIn}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}
+          onChangeText={(address) => this.setState({address})}
+          value={this.state.address}
         />
 
         <Text style={styles.textInLabel}>Type of business</Text>
@@ -50,7 +52,7 @@ export default class RegScreen extends React.Component {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={this.onPress}
+          onPress={() => this.sendData()}
         >
           <Text style={styles.btnText}>Register</Text>
         </TouchableOpacity>
@@ -58,6 +60,36 @@ export default class RegScreen extends React.Component {
       </View>
     );
   }
+
+  sendData(){
+    console.log("Send Data:", this.state.name );
+    fetch('http://demonhacks-1.appspot.com/api/user', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'uuid': '1'
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        address: this.state.address,
+        type: this.state.type == "Restaurant" ? true : false
+      }),
+    }).then((response) => response.json())
+    .then((responseJson) => {
+      console.log(responseJson);
+      this.props.navigation.navigate('Home');
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+
+
+
+
+
+
 }
 
 const styles = StyleSheet.create({
