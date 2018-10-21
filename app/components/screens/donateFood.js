@@ -9,7 +9,8 @@ export default class DonateFood extends React.Component {
       <View style={styles.container}>
         <Header style={{paddingTop: 20, height: 80, backgroundColor: '#182e42'}}>
           <Left style={{marginLeft: -130,}}>
-            <Icon name="menu" size={24} style={{color: '#f2f2f2'}} onPress={() => this.props.navigation.openDrawer()}/>
+          <Icon name="arrow-left" type="FontAwesome" size={24} style={{color: '#f2f2f2'}}
+          onPress={() => this.props.navigation.navigate('Restaurant Home')}/>
           </Left>
         </Header>
 
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#f2f2f2',
     marginTop: 72,
-    marginLeft: 85,
+    marginLeft: 75,
   },
 
   reqText: {

@@ -9,7 +9,8 @@ export default class BankHome extends React.Component {
       <View style={styles.container}>
         <Header style={{paddingTop: 20, height: 80, backgroundColor: '#793698'}}>
           <Left style={{marginLeft: -130,}}>
-            <Icon name="menu" size={24} style={{color: '#f2f2f2'}} onPress={() => this.props.navigation.openDrawer()}/>
+            <Icon name="menu" size={24} style={{color: '#f2f2f2'}} onPress={() =>
+              this.props.navigation.openDrawer()}/>
           </Left>
         </Header>
 
@@ -22,7 +23,7 @@ export default class BankHome extends React.Component {
         <View style={styles.centering}>
           <TouchableOpacity
             style={styles.donateBtn}
-            onPress={this.onPress}
+            onPress={() => this.props.navigation.navigate('Request Food')}
           >
           <Icon size={50} name="car" style={styles.carIcon}/>
           <Text style={styles.donateText}>Request food</Text>
@@ -30,7 +31,7 @@ export default class BankHome extends React.Component {
 
           <TouchableOpacity
             style={styles.reqBtn}
-            onPress={this.onPress}
+            onPress={() => this.props.navigation.navigate('Available Food')}
           >
           <Icon name={"clipboard"} type="FontAwesome"size={24} style={styles.clipboardIcon}/>
           <Text style={styles.reqText}>See Available food</Text>
@@ -79,14 +80,14 @@ const styles = StyleSheet.create({
     marginTop: 15,
     width: '90%',
     height: 180,
-    backgroundColor: '#d6b4e7',
+    backgroundColor: '#c18eda',
   },
 
   donateBtn: {
     marginTop: 15,
     width: '90%',
     height: 180,
-    backgroundColor: '#d6b4e7',
+    backgroundColor: '#c18eda',
   },
 
   intro: {

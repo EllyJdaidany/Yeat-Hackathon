@@ -1,22 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
 
-export default class SeeReqFood extends React.Component {
+export default class ReqFood extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#182e42'}}>
+        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#793698'}}>
           <Left style={{marginLeft: -130,}}>
-              <Icon name="arrow-left" type="FontAwesome" size={24} style={{color: '#f2f2f2'}} 
-              onPress={() => this.props.navigation.navigate('Restaurant Home')}/>
+              <Icon name="arrow-left" type="FontAwesome" size={24} style={{color: '#f2f2f2'}}
+              onPress={() => this.props.navigation.navigate('Bank Home')}/>
           </Left>
         </Header>
         <ScrollView>
           <View style={styles.center}>
             <Icon size={40} name={"clipboard"} type="FontAwesome" style={styles.clipboardIcon}/>
-            <Text style={styles.textHeader}>Requested Foods</Text>
+            <Text style={styles.textHeader}>Request Food</Text>
           </View>
           <View style={styles.alignList}>
             <View style={styles.listItem}>
@@ -61,6 +61,19 @@ export default class SeeReqFood extends React.Component {
             <View style={styles.listItem}>
               <Text style={styles.catName}>Rice</Text>
             </View>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => Alert.alert(
+                  'Request sent',
+                  'We will add your needs to the list and get back to you when we find a match!',
+                  [
+                    {text: 'OK', onPress: () => this.props.navigation.navigate('Bank Home')},
+                  ],
+                  { cancelable: false }
+                )}
+            >
+              <Text style={styles.btnText}>Request</Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </View>
@@ -72,6 +85,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f2f2f2',
+  },
+
+  button : {
+    width: '90%',
+    height: 50,
+    marginTop: 25,
+    backgroundColor: '#793698',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  btnText: {
+    color: '#f2f2f2',
+    fontSize: 16,
   },
 
   center: {
@@ -97,7 +125,7 @@ const styles = StyleSheet.create({
     height: 45,
     marginTop: '2%',
     marginBottom: '2%',
-    backgroundColor: '#698eb8',
+    backgroundColor: '#c18eda',
     flexDirection: 'row',
     alignItems: 'center',
   },
