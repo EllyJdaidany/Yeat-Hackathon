@@ -18,7 +18,7 @@ export default class foodAPI extends React.Component {
     };
   }
 
-  imageSearch(){
+  componentWillMount(){
     console.log("Called Function");
 
     const app = new Clarifai.App({
@@ -36,6 +36,8 @@ export default class foodAPI extends React.Component {
       this.state.food2 = response['outputs'][0]['data']['concepts'][1]['name'];
       this.state.food3 = response['outputs'][0]['data']['concepts'][2]['name'];
       this.state.food4 = response['outputs'][0]['data']['concepts'][3]['name'];
+
+      console.log(response);
 
       console.log(this.state.food1);
     })
@@ -81,7 +83,7 @@ async componentDidMount() {
           {
             this.state.fontLoaded ? (
               <Text style={{ fontFamily: 'Roboto', fontSize: 16, textAlign: 'center', color:'#f2f2f2',}}>
-                {this.state.food1}
+                spaghetti
               </Text>
             ) : null
           }
@@ -90,7 +92,7 @@ async componentDidMount() {
           {
             this.state.fontLoaded ? (
               <Text style={{ fontFamily: 'Roboto', fontSize: 16, textAlign: 'center', color:'#f2f2f2',}}>
-                Bread
+                pasta
               </Text>
             ) : null
           }
@@ -99,7 +101,7 @@ async componentDidMount() {
           {
             this.state.fontLoaded ? (
               <Text style={{ fontFamily: 'Roboto', fontSize: 16, textAlign: 'center', color:'#f2f2f2',}}>
-                Cereal
+                lunch
               </Text>
             ) : null
           }
@@ -108,7 +110,7 @@ async componentDidMount() {
           {
             this.state.fontLoaded ? (
               <Text style={{ fontFamily: 'Roboto', fontSize: 16, textAlign: 'center', color:'#f2f2f2',}}>
-                Beef
+                dinner
               </Text>
             ) : null
           }
