@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity, ScrollView } from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
 //import DeviceInfo from 'react-native-device-info';
@@ -15,13 +15,15 @@ export default class RegScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      <Header style={{paddingTop: 20, height: 80, backgroundColor: '#61c5ec'}}>
+      <Header style={{paddingTop: 20, height: 80, backgroundColor: '#182e42'}}>
         <Left style={{marginLeft: -130,}}>
-          <Icon name="menu" size={24} onPress={() => this.props.navigation.openDrawer()}/>
+          <Icon name="menu" style={{color: '#f2f2f2'}} size={24} onPress={() => this.props.navigation.openDrawer()}/>
         </Left>
       </Header>
+
+      <ScrollView>
         <View style={styles.centering}>
-          <Text style={styles.headText}>Food</Text>
+          <Text style={styles.headText}>{"Y'eat"}</Text>
 
         <Text style={styles.textInLabel}>Name</Text>
         <TextInput
@@ -57,6 +59,10 @@ export default class RegScreen extends React.Component {
           <Text style={styles.btnText}>Register</Text>
         </TouchableOpacity>
         </View>
+
+        <View style={{backgroundColor: '#f2f2f2', height: 350,}}>
+        </View>
+        </ScrollView>
       </View>
     );
   }
@@ -92,11 +98,6 @@ export default class RegScreen extends React.Component {
     });
   }
 
-
-
-
-
-
 }
 
 const styles = StyleSheet.create({
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
   textIn : {
     width: '80%',
     height: 40,
-    borderColor: '#61c5ec',
+    borderColor: '#698eb8',
     borderWidth: 1,
   },
 
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     width: '80%',
     height: 50,
     marginTop: 25,
-    backgroundColor: '#2f395c',
+    backgroundColor: '#698eb8',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

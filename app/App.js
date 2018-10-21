@@ -5,6 +5,8 @@ import {createDrawerNavigator, DrawerItems} from 'react-navigation';
 import ResHome from './components/screens/ResHome.js';
 import RegScreen from './components/screens/RegScreen.js';
 import BankHome from './components/screens/bankHome.js';
+import SeeReqFood from './components/screens/seeReqFood.js';
+import DonateFood from './components/screens/donateFood.js'
 
 export default class App extends React.Component {
   render() {
@@ -28,7 +30,9 @@ const DrawerComponent = (props) => (
 const AppDrawerNav = createDrawerNavigator({
   'Restaurant Home': ResHome,
   'Bank Home' : BankHome,
-  Register:RegScreen,
+  'Register': RegScreen,
+  'See Requested Food' : SeeReqFood,
+  'Donate Food' : DonateFood,
 },{
   contentComponent: DrawerItems,
 })

@@ -3,11 +3,11 @@ import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity } from 'rea
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
 
-export default class BankHome extends React.Component {
+export default class DonateFood extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#793698'}}>
+        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#182e42'}}>
           <Left style={{marginLeft: -130,}}>
             <Icon name="menu" size={24} style={{color: '#f2f2f2'}} onPress={() => this.props.navigation.openDrawer()}/>
           </Left>
@@ -15,7 +15,7 @@ export default class BankHome extends React.Component {
 
         <View style={styles.intro}>
           <View style={styles.centering}>
-            <Text style={styles.head}>Welcome back, Feeding America</Text>
+            <Text style={styles.head}>{"Donate to Y'eat"}</Text>
           </View>
         </View>
 
@@ -24,16 +24,16 @@ export default class BankHome extends React.Component {
             style={styles.donateBtn}
             onPress={this.onPress}
           >
-          <Icon size={50} name="car" style={styles.carIcon}/>
-          <Text style={styles.donateText}>Request food</Text>
+          <Icon size={50} name="camera" style={styles.cameraIcon}/>
+          <Text style={styles.donateText}>Select items via camera</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.reqBtn}
-            onPress={this.onPress}
+            onPress={() => this.props.navigation.navigate('See Requested Food')}
           >
-          <Icon name={"clipboard"} type="FontAwesome"size={24} style={styles.clipboardIcon}/>
-          <Text style={styles.reqText}>See Available food</Text>
+          <Icon name={"clipboard"} type="FontAwesome" size={24} style={styles.clipboardIcon}/>
+          <Text style={styles.reqText}>Select items via category</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -47,11 +47,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#f2f2f2',
   },
 
-  carIcon: {
+  donateBtn: {
+    marginTop: 15,
+    width: '90%',
+    height: 180,
+    backgroundColor: '#698eb8',
+  },
+
+  cameraIcon: {
     color: '#f2f2f2',
     position: 'absolute',
-    marginTop: 77,
-    marginLeft: 85,
+    marginTop: 75,
+    marginLeft: 35,
   },
 
   clipboardIcon: {
@@ -64,14 +71,14 @@ const styles = StyleSheet.create({
   donateText: {
     fontSize: 24,
     color: '#f2f2f2',
-    marginTop: 75,
-    marginLeft: 115,
+    marginTop: 72,
+    marginLeft: 85,
   },
 
   reqText: {
     fontSize: 24,
     color: '#f2f2f2',
-    marginTop: 75,
+    marginTop: 72,
     marginLeft: 75,
   },
 
@@ -79,19 +86,11 @@ const styles = StyleSheet.create({
     marginTop: 15,
     width: '90%',
     height: 180,
-    backgroundColor: '#d6b4e7',
+    backgroundColor: '#698eb8',
   },
-
-  donateBtn: {
-    marginTop: 15,
-    width: '90%',
-    height: 180,
-    backgroundColor: '#d6b4e7',
-  },
-
   intro: {
     height: '25%',
-    backgroundColor: '#793698',
+    backgroundColor: '#182e42',
   },
   centering: {
       flexDirection: 'column',

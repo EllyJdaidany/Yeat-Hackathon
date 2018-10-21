@@ -22,7 +22,7 @@ export default class ResHome extends React.Component {
         <View style={styles.centering}>
           <TouchableOpacity
             style={styles.donateBtn}
-            onPress={this.onPress}
+            onPress={() => this.props.navigation.navigate('Donate Food')}
           >
           <Icon size={50} name="car" style={styles.carIcon}/>
           <Text style={styles.donateText}>Donate food</Text>
@@ -30,9 +30,9 @@ export default class ResHome extends React.Component {
 
           <TouchableOpacity
             style={styles.reqBtn}
-            onPress={this.onPress}
+            onPress={() => this.props.navigation.navigate('See Requested Food')}
           >
-          <Icon name="clipboard" size={24} style={styles.clipboardIcon}/>
+          <Icon name={"clipboard"} type="FontAwesome" size={24} style={styles.clipboardIcon}/>
           <Text style={styles.reqText}>See requested food</Text>
           </TouchableOpacity>
         </View>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     color: '#f2f2f2',
     marginTop: 75,
     position: 'absolute',
-    marginLeft: 45,
+    marginLeft: 35,
   },
 
   donateText: {
