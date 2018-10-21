@@ -23,7 +23,7 @@ export default class DonateFood extends React.Component {
         <View style={styles.centering}>
           <TouchableOpacity
             style={styles.donateBtn}
-
+            onPress={() => this.props.navigation.navigate('Camera')}
           >
           <Icon size={50} name="camera" style={styles.cameraIcon}/>
           <Text style={styles.donateText}>Select items via camera</Text>

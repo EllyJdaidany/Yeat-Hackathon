@@ -13,6 +13,8 @@ import ReqFood from './components/screens/ReqFood.js';
 import Available from './components/screens/AvailableFood.js';
 import test from './components/screens/test.js';
 import resStats from './components/screens/resStats.js';
+import Camera from './components/screens/camera.js';
+import FoodAPI from './components/screens/foodAPI.js';
 
 export default class App extends React.Component {
   render() {
@@ -43,6 +45,8 @@ const AppDrawerNav = createDrawerNavigator({
   'Request Food' : ReqFood,
   'Available Food' : Available,
   'Restaurant Stats' : resStats,
+  'Camera' : Camera,
+  'Food API' :FoodAPI,
 },{
   contentComponent: DrawerItems,
 })
