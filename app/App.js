@@ -13,6 +13,7 @@ import ReqFood from './components/screens/ReqFood.js';
 import Available from './components/screens/AvailableFood.js';
 import test from './components/screens/test.js';
 import resStats from './components/screens/resStats.js';
+import bankStats from './components/screens/bankStats.js';
 
 export default class App extends React.Component {
   render() {
@@ -34,8 +35,8 @@ const DrawerComponent = (props) => (
 )
 
 const AppDrawerNav = createDrawerNavigator({
-    'Restaurant Home': ResHome,
   'Bank Home' : BankHome,
+  'Restaurant Home': ResHome,
   'Register': RegScreen,
   'See Requested Food' : SeeReqFood,
   'Donate Food' : DonateFood,
@@ -43,6 +44,7 @@ const AppDrawerNav = createDrawerNavigator({
   'Request Food' : ReqFood,
   'Available Food' : Available,
   'Restaurant Stats' : resStats,
+  'Bank Stats' : bankStats,
 },{
   contentComponent: DrawerItems,
 })

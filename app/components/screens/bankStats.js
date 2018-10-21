@@ -4,7 +4,7 @@ import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
 import { LinearGradient, Font } from 'expo';
 
-export default class resStats extends React.Component {
+export default class bankStats extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -23,16 +23,16 @@ async componentDidMount() {
   render() {
     return (
       <View style={styles.container}>
-        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#002a4d'}}>
+        <Header style={{paddingTop: 20, height: 80, backgroundColor: '#793698'}}>
           <Left style={{marginLeft: -130,}}>
           <Icon name="arrow-left" type="FontAwesome" size={24} style={{color: '#f2f2f2'}}
-          onPress={() => this.props.navigation.navigate('Restaurant Home')}/>
+          onPress={() => this.props.navigation.navigate('Bank Home')}/>
           </Left>
         </Header>
         <ScrollView>
         <View style={styles.intro}>
           <LinearGradient
-            colors={['#002a4d', '#14568c', '#80c6ff']}
+            colors={['#793698', '#ac68cc', '#d6b4e7']}
             style={{ height: 150, padding: 15, alignItems: 'center', }}>
               <Image
                 source={require('../images/barchart.png')}
@@ -64,7 +64,7 @@ async componentDidMount() {
         <View style={styles.listStats}>
           {
             this.state.fontLoaded ? (
-              <Text style={styles.statLabel}>Amount donated (lbs): </Text>
+              <Text style={styles.statLabel}>Amount received (lbs): </Text>
             ) : null
           }
           {
@@ -74,7 +74,7 @@ async componentDidMount() {
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.statLabel}>Total number of donations: </Text>
+              <Text style={styles.statLabel}>Total number of received donations: </Text>
             ) : null
           }
           {
@@ -84,7 +84,7 @@ async componentDidMount() {
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.statLabel}>Estimated value of donations: </Text>
+              <Text style={styles.statLabel}>Estimated value of received donations: </Text>
             ) : null
           }
           {
@@ -107,7 +107,7 @@ async componentDidMount() {
         <View style={styles.listStats}>
           {
             this.state.fontLoaded ? (
-              <Text style={styles.statLabel}>Amount donated (kg): </Text>
+              <Text style={styles.statLabel}>Amount received (lbs): </Text>
             ) : null
           }
           {
@@ -137,7 +137,7 @@ async componentDidMount() {
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.statLabel}>Total number of donations: </Text>
+              <Text style={styles.statLabel}>Total number of received donations: </Text>
             ) : null
           }
           {
@@ -147,27 +147,27 @@ async componentDidMount() {
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.subStat}>72 donations within the last 6 months</Text>
+              <Text style={styles.subStat}>72 donations received within the last 6 months</Text>
             ) : null
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.subStat}>118 donations within the last year</Text>
+              <Text style={styles.subStat}>118 received donations within the last year</Text>
             ) : null
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.subStat}>312 donations within the last 2 years</Text>
+              <Text style={styles.subStat}>312 received donations within the last 2 years</Text>
             ) : null
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.subStat}>465 donations within the last 5 years</Text>
+              <Text style={styles.subStat}>465 receieved donations within the last 5 years</Text>
             ) : null
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.statLabel}>Estimated value of donations: </Text>
+              <Text style={styles.statLabel}>Estimated value of receieved donations: </Text>
             ) : null
           }
           {
@@ -222,14 +222,14 @@ const styles = StyleSheet.create({
   stat: {
     fontFamily: 'Roboto-Thin',
     fontSize: 16,
-    color: '#14568c',
+    color: '#ac68cc',
     marginLeft: '20%',
   },
 
   subStat: {
     fontFamily: 'Roboto-Thin',
     fontSize: 16,
-    color: '#14568c',
+    color: '#ac68cc',
     marginLeft: '25%',
   },
 

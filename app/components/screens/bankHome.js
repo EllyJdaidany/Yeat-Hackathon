@@ -49,7 +49,7 @@ export default class bankHome extends React.Component {
       <View style={styles.botLeftBox}>
       <TouchableOpacity
         style={styles.boxElement}
-        onPress={() => this.props.navigation.navigate('Request Food')}
+        onPress={() => this.props.navigation.navigate('Bank Stats')}
       >
         <Text style={styles.graphText}>My stats</Text>
         <Icon name={"line-chart"} type="FontAwesome"size={24} style={styles.graphIcon}/>
