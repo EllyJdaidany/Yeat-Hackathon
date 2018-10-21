@@ -89,7 +89,7 @@ async componentDidMount() {
                   'Request sent',
                   'We will contact you when food is on the way!',
                   [
-                    {text: 'OK', onPress: () => this.props.navigation.navigate('Bank Home')},
+                    {text: 'Yeat', onPress: () => this.props.navigation.navigate('Bank Home')},
                   ],
                   { cancelable: false }
                 )}
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 50,
     marginTop: 25,
-    backgroundColor: '#793698',
+    backgroundColor: '#002a4d',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

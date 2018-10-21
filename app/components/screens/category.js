@@ -2,8 +2,23 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
+import {Font} from 'expo';
 
 export default class Categories extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    fontLoaded: false,
+  };
+}
+
+async componentDidMount() {
+await Font.loadAsync({
+  'Roboto-Thin': require('../fonts/Roboto-Thin.ttf'),
+});
+
+this.setState({ fontLoaded: true });
+}
   render() {
     return (
       <View style={styles.container}>
@@ -16,7 +31,13 @@ export default class Categories extends React.Component {
         <ScrollView>
           <View style={styles.center}>
             <Icon size={40} name={"clipboard"} type="FontAwesome" style={styles.clipboardIcon}/>
-            <Text style={styles.textHeader}>Select categories</Text>
+            {
+              this.state.fontLoaded ? (
+                <Text style={styles.textHeader}>
+                  Select item categories
+                </Text>
+              ) : null
+            }
           </View>
           <View style={styles.alignList}>
             <View style={styles.listItem}>
@@ -68,7 +89,7 @@ export default class Categories extends React.Component {
                   'Submission sent',
                   'Thanks for your donation!',
                   [
-                    {text: 'OK', onPress: () => this.props.navigation.navigate('Restaurant Home')},
+                    {text: 'Yeat', onPress: () => this.props.navigation.navigate('Restaurant Home')},
                   ],
                   { cancelable: false }
                 )}
@@ -98,6 +119,7 @@ const styles = StyleSheet.create({
     marginTop: '25%',
     fontSize: 24,
     color: '#000000',
+    fontFamily: 'Roboto-Thin',
   },
 
   clipboardIcon: {
@@ -110,7 +132,7 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 50,
     marginTop: 25,
-    backgroundColor: '#182e42',
+    backgroundColor: '#002a4d',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -126,7 +148,7 @@ const styles = StyleSheet.create({
     height: 45,
     marginTop: '2%',
     marginBottom: '2%',
-    backgroundColor: '#698eb8',
+    backgroundColor: '#14568c',
     flexDirection: 'row',
     alignItems: 'center',
   },

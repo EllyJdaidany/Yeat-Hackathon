@@ -36,7 +36,7 @@ export default class CameraExample extends React.Component {
                   alignSelf: 'flex-end',
                   alignItems: 'center',
                 }}
-                onPress={() => this.props.navigation.navigate('Food API')}>
+                onPress={() => this.props.navigation.navigate('Camera Result')}>
                 <Text
                   style={{ fontSize: 26, marginBottom: 10, color: 'white' }}>
                   {' '}Capture{' '}

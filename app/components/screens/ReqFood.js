@@ -2,8 +2,23 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
+import {Font} from 'expo';
 
 export default class ReqFood extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    fontLoaded: false,
+  };
+}
+
+async componentDidMount() {
+await Font.loadAsync({
+  'Roboto-Thin': require('../fonts/Roboto-Thin.ttf'),
+});
+
+this.setState({ fontLoaded: true });
+}
   render() {
     return (
       <View style={styles.container}>
@@ -16,7 +31,14 @@ export default class ReqFood extends React.Component {
         <ScrollView>
           <View style={styles.center}>
             <Icon size={40} name={"clipboard"} type="FontAwesome" style={styles.clipboardIcon}/>
-            <Text style={styles.textHeader}>Request Food</Text>
+
+          {
+            this.state.fontLoaded ? (
+              <Text style={styles.textHeader}>
+                Request Food
+              </Text>
+            ) : null
+          }
           </View>
           <View style={styles.alignList}>
             <View style={styles.listItem}>
@@ -67,7 +89,7 @@ export default class ReqFood extends React.Component {
                   'Request sent',
                   'We will add your needs to the list and get back to you when we find a match!',
                   [
-                    {text: 'OK', onPress: () => this.props.navigation.navigate('Bank Home')},
+                    {text: 'Yeat', onPress: () => this.props.navigation.navigate('Bank Home')},
                   ],
                   { cancelable: false }
                 )}
@@ -112,6 +134,7 @@ const styles = StyleSheet.create({
     marginTop: '25%',
     fontSize: 24,
     color: '#000000',
+    fontFamily: 'Roboto-Thin'
   },
 
   clipboardIcon: {

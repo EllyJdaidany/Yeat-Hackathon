@@ -2,9 +2,23 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Picker, TouchableOpacity } from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
 import {Header, Left, Right, Icon} from 'native-base';
-import { LinearGradient } from 'expo';
+import { LinearGradient, Font } from 'expo';
 
 export default class test extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+      fontLoaded: false,
+    };
+  }
+
+async componentDidMount() {
+  await Font.loadAsync({
+    'Roboto-Thin': require('../fonts/Roboto-Thin.ttf'),
+  });
+
+  this.setState({ fontLoaded: true });
+}
   render() {
     return (
       <View style={styles.container}>
@@ -19,10 +33,13 @@ export default class test extends React.Component {
         <LinearGradient
           colors={['#002a4d', '#14568c', '#80c6ff']}
           style={{ height: 150, padding: 15, alignItems: 'center', }}>
-          <Text
-            style={styles.head}>
-            Welcome back, Panera
-            </Text>
+          {
+            this.state.fontLoaded ? (
+              <Text style={styles.head}>
+                Welcome back, Panera
+              </Text>
+            ) : null
+          }
             </LinearGradient>
         </View>
 
@@ -207,7 +224,7 @@ const styles = StyleSheet.create({
     color:'#f2f2f2',
     fontSize: 22,
     marginTop: '12.5%',
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto-Thin',
   },
 
 });

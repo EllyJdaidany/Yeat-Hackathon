@@ -13,12 +13,10 @@ import ReqFood from './components/screens/ReqFood.js';
 import Available from './components/screens/AvailableFood.js';
 import test from './components/screens/test.js';
 import resStats from './components/screens/resStats.js';
-<<<<<<< HEAD
-import bankStats from './components/screens/bankStats.js';
-=======
 import Camera from './components/screens/camera.js';
-import FoodAPI from './components/screens/foodAPI.js';
->>>>>>> 4ee9e302a5f98898885e138e866f84c2a8faa2ae
+import foodAPI from './components/screens/foodAPI.js'
+
+import bankStats from './components/screens/bankStats.js';
 
 export default class App extends React.Component {
   render() {
@@ -40,8 +38,8 @@ const DrawerComponent = (props) => (
 )
 
 const AppDrawerNav = createDrawerNavigator({
-  'Bank Home' : BankHome,
   'Restaurant Home': ResHome,
+  'Bank Home' : BankHome,
   'Register': RegScreen,
   'See Requested Food' : SeeReqFood,
   'Donate Food' : DonateFood,
@@ -49,12 +47,10 @@ const AppDrawerNav = createDrawerNavigator({
   'Request Food' : ReqFood,
   'Available Food' : Available,
   'Restaurant Stats' : resStats,
-<<<<<<< HEAD
-  'Bank Stats' : bankStats,
-=======
   'Camera' : Camera,
-  'Food API' :FoodAPI,
->>>>>>> 4ee9e302a5f98898885e138e866f84c2a8faa2ae
+  'Bank Stats' : bankStats,
+  'Camera Result' : foodAPI,
+  
 },{
   contentComponent: DrawerItems,
 })
