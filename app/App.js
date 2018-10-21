@@ -6,7 +6,8 @@ import ResHome from './components/screens/ResHome.js';
 import RegScreen from './components/screens/RegScreen.js';
 import BankHome from './components/screens/bankHome.js';
 import SeeReqFood from './components/screens/seeReqFood.js';
-import DonateFood from './components/screens/donateFood.js'
+import DonateFood from './components/screens/donateFood.js';
+import Categories from './components/screens/category.js';
 
 export default class App extends React.Component {
   render() {
@@ -33,6 +34,7 @@ const AppDrawerNav = createDrawerNavigator({
   'Register': RegScreen,
   'See Requested Food' : SeeReqFood,
   'Donate Food' : DonateFood,
+  'Donate via category' : Categories,
 },{
   contentComponent: DrawerItems,
 })
