@@ -76,7 +76,7 @@ async componentDidMount() {
       <View style={styles.botRightBox}>
         <TouchableOpacity
           style={styles.boxElement}
-          onPress={() => this.props.navigation.navigate('Request Food')}
+          onPress={() => this.props.navigation.navigate('Bank Profile')}
         >
           <Text style={styles.profileText}>My Profile</Text>
           <Icon name={"user"} type="FontAwesome"size={24} style={styles.userIcon}/>

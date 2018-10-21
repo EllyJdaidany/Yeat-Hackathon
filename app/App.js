@@ -14,7 +14,9 @@ import Available from './components/screens/AvailableFood.js';
 import test from './components/screens/test.js';
 import resStats from './components/screens/resStats.js';
 import Camera from './components/screens/camera.js';
-import foodAPI from './components/screens/foodAPI.js'
+import foodAPI from './components/screens/foodAPI.js';
+import Profile from './components/screens/Profile.js';
+import bankProfile from './components/screens/bankProfile.js'
 
 import bankStats from './components/screens/bankStats.js';
 
@@ -38,8 +40,8 @@ const DrawerComponent = (props) => (
 )
 
 const AppDrawerNav = createDrawerNavigator({
-  'Restaurant Home': ResHome,
   'Bank Home' : BankHome,
+  'Restaurant Home': ResHome,
   'Register': RegScreen,
   'See Requested Food' : SeeReqFood,
   'Donate Food' : DonateFood,
@@ -50,7 +52,9 @@ const AppDrawerNav = createDrawerNavigator({
   'Camera' : Camera,
   'Bank Stats' : bankStats,
   'Camera Result' : foodAPI,
-  
+  'Business Profile' : Profile,
+  'Bank Profile' : bankProfile,
+
 },{
   contentComponent: DrawerItems,
 })
