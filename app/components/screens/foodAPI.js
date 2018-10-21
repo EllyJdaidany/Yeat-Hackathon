@@ -40,6 +40,7 @@ export default class foodAPI extends React.Component {
       console.log(response);
 
       console.log(this.state.food1);
+      this.forceUpdate();
     })
 }
 
@@ -83,7 +84,7 @@ async componentDidMount() {
           {
             this.state.fontLoaded ? (
               <Text style={{ fontFamily: 'Roboto', fontSize: 16, textAlign: 'center', color:'#f2f2f2',}}>
-                spaghetti
+                {this.state.food1}
               </Text>
             ) : null
           }
@@ -92,7 +93,7 @@ async componentDidMount() {
           {
             this.state.fontLoaded ? (
               <Text style={{ fontFamily: 'Roboto', fontSize: 16, textAlign: 'center', color:'#f2f2f2',}}>
-                pasta
+                {this.state.food2}
               </Text>
             ) : null
           }
@@ -101,7 +102,7 @@ async componentDidMount() {
           {
             this.state.fontLoaded ? (
               <Text style={{ fontFamily: 'Roboto', fontSize: 16, textAlign: 'center', color:'#f2f2f2',}}>
-                lunch
+                {this.state.food3}
               </Text>
             ) : null
           }
@@ -110,7 +111,7 @@ async componentDidMount() {
           {
             this.state.fontLoaded ? (
               <Text style={{ fontFamily: 'Roboto', fontSize: 16, textAlign: 'center', color:'#f2f2f2',}}>
-                dinner
+                {this.state.food4}
               </Text>
             ) : null
           }

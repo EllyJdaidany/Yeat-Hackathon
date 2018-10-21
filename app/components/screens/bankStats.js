@@ -89,7 +89,7 @@ async componentDidMount() {
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.stat}>$22,5655.75</Text>
+              <Text style={styles.stat}>$26,5655.75</Text>
             ) : null
           }
         </View>
@@ -172,7 +172,7 @@ async componentDidMount() {
           }
           {
             this.state.fontLoaded ? (
-              <Text style={styles.stat}>$22,5655.75</Text>
+              <Text style={styles.stat}>$26,5655.75</Text>
             ) : null
           }
           {
